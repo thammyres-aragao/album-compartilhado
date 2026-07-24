@@ -34,25 +34,55 @@
 
             <div class="preview">
 
-                Em breve aparecerá a câmera
+                <video
+                    id="camera"
+                    autoplay
+                    playsinline
+                    muted>
+                </video>
+
+                <canvas
+                    id="canvas"
+                    style="display:none;">
+                </canvas>
+
+                <img
+                    id="fotoCapturada"
+                    style="display:none;">
 
             </div>
 
-            <button class="btn">
+            <button id="btnCapturar" class="btn">
                 📸 Capturar Foto
             </button>
 
-            <button class="btn">
+            <button id="btnNovaFoto" class="btn" style="display:none;">
+
+                🔄 Tirar outra foto
+
+            </button>
+
+            <button id="btnContinuar" class="btn" style="display:none;">
+
+                 ➜ Continuar
+
+            </button>
+
+            <button id="btnTrocar" class="btn">
                 🔄 Trocar câmera
             </button>
 
-            <button class="btn">
+            <button id="btnGaleria" class="btn">
                 🖼 Escolher da galeria
             </button>
 
+            <div id="areaLegenda" style="display:none;">
+
             <textarea placeholder="Escreva uma legenda..."></textarea>
 
-            <button class="btn-enviar">
+            </div>
+
+            <button id="btnEnviar" class="btn-enviar" style="display:none;">
                 Compartilhar Momento
             </button>
 
@@ -60,7 +90,11 @@
 
     </div>
 
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/camera.js"></script>
+    <script src="assets/js/preview.js"></script>
+    <script src="assets/js/upload.js"></script>
+    <script src="assets/js/app.js"></script>
 
 </body>
 
