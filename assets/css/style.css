@@ -57,23 +57,27 @@ body{
 
 .logo{
 
-    font-size:50px;
+    display:flex;
 
-    text-align:center;
+    flex-direction:column;
 
-    margin-bottom:10px;
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:20px;
 
 }
 
 h1{
 
-    text-align:center;
-
     color:var(--cor-primaria);
 
-    font-size:28px;
+    font-size:20px;
 
-    margin-top:10px;
+    font-weight:500;
+
+    margin-top:6px;
 
 }
 
@@ -83,13 +87,13 @@ h1{
 
     color:var(--cor-texto);
 
-    opacity:.75;
+    opacity:.55;
 
-    margin-top:8px;
+    font-size:13px;
 
-    margin-bottom:25px;
+    margin-top:4px;
 
-    font-size:15px;
+    margin-bottom:18px;
 
 }
 
@@ -110,9 +114,11 @@ h1{
 
     color:var(--cor-primaria);
 
-    font-size:24px;
+    font-size:32px;
 
     font-weight:700;
+
+    line-height:1.2;
 
     margin-bottom:10px;
 
@@ -122,9 +128,11 @@ h1{
 
     color:var(--cor-texto);
 
-    font-size:15px;
+    font-size:17px;
 
     font-weight:400;
+
+    line-height:1.5;
 
 }
 
@@ -286,19 +294,23 @@ textarea{
 
 #logoEvento{
 
-    max-width:90px;
-
-    max-height:90px;
-
     display:none;
 
-    margin:auto;
+    max-width:110px;
+
+    max-height:110px;
+
+    object-fit:contain;
+
+    margin-bottom:15px;
 
 }
 
 #logoPadrao{
 
-    font-size:50px;
+    display:block;
+
+    font-size:38px;
 
 }
 
@@ -333,5 +345,11 @@ textarea{
     margin-bottom:0;
 
     flex:1;
+
+}
+
+#marcaSistema{
+
+    text-align:center;
 
 }

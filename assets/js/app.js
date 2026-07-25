@@ -75,16 +75,22 @@ function atualizarTelaEvento() {
         EVENTO.CorPrimaria || "#503a87"
     );
 
-    if (EVENTO.Logo) {
+    const logo = document.getElementById("logoEvento");
+    const marcaSistema = document.getElementById("marcaSistema");
 
-        const logo = document.getElementById("logoEvento");
+        if (EVENTO.Logo && EVENTO.Logo.trim() !== "") {
 
-        logo.src = EVENTO.Logo;
+            logo.src = EVENTO.Logo;
+            logo.style.display = "block";
 
-        logo.style.display = "block";
+            marcaSistema.style.display = "none";
 
-        document.getElementById("logoPadrao").style.display = "none";
+        } else {
 
-    }
+            logo.style.display = "none";
+
+            marcaSistema.style.display = "block";
+
+        }
 
 }
