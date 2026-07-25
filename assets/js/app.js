@@ -22,8 +22,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     .getElementById("btnContinuar")
     .addEventListener("click", () => {
 
-        alert("Foto aprovada!");
+        mostrarEtapa("etapaEnvio");
 
     });
+
+    document
+    .getElementById("btnEnviar")
+    .addEventListener("click", testarAPI);
 
 });

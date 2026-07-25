@@ -52,48 +52,55 @@
 
             </div>
 
-            <button id="btnCapturar" class="btn">
-                📸 Capturar Foto
-            </button>
+            <div id="etapaCaptura">
 
-            <button id="btnNovaFoto" class="btn" style="display:none;">
+                <button id="btnCapturar" class="btn">
+                    📸 Capturar Foto
+                </button>
 
-                🔄 Tirar outra foto
+                <button id="btnTrocar" class="btn">
+                    🔄 Trocar câmera
+                </button>
 
-            </button>
-
-            <button id="btnContinuar" class="btn" style="display:none;">
-
-                 ➜ Continuar
-
-            </button>
-
-            <button id="btnTrocar" class="btn">
-                🔄 Trocar câmera
-            </button>
-
-            <button id="btnGaleria" class="btn">
-                🖼 Escolher da galeria
-            </button>
-
-            <div id="areaLegenda" style="display:none;">
-
-            <textarea placeholder="Escreva uma legenda..."></textarea>
+                <button id="btnGaleria" class="btn">
+                    🖼 Escolher da galeria
+                </button>
 
             </div>
 
-            <button id="btnEnviar" class="btn-enviar" style="display:none;">
-                Compartilhar Momento
-            </button>
+            <div id="etapaAprovacao" style="display:none;">
+
+                <button id="btnNovaFoto" class="btn">
+                    🔄 Tirar outra foto
+                </button>
+
+                <button id="btnContinuar" class="btn">
+                    ➜ Continuar
+                </button>
+
+            </div>
+
+            <div id="etapaEnvio" style="display:none;">
+
+                <textarea id="legenda" placeholder="Escreva uma legenda..."></textarea>
+
+                <button id="btnEnviar" class="btn-enviar">
+                    Compartilhar Momento
+                </button>
+
+            </div>
 
         </div>
 
     </div>
 
+    <script src="assets/js/config.js"></script>
     <script src="assets/js/utils.js"></script>
     <script src="assets/js/camera.js"></script>
     <script src="assets/js/preview.js"></script>
     <script src="assets/js/upload.js"></script>
+    <script src="assets/js/evento.js"></script>
+    <script src="assets/js/nomeArquivo.js"></script>
     <script src="assets/js/app.js"></script>
 
 </body>

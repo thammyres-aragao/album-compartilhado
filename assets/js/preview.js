@@ -1,3 +1,5 @@
+let imagemCapturada = null;
+
 console.log("✔ preview.js carregado");
 
 function capturarFoto() {
@@ -13,18 +15,18 @@ function capturarFoto() {
 
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-    img.src = canvas.toDataURL("image/jpeg", 0.9);
+   imagemCapturada = canvas.toDataURL("image/jpeg", 0.9);
+
+    img.src = imagemCapturada;
 
     video.style.display = "none";
     img.style.display = "block";
 
     // Esconde os botões da câmera
-    document.getElementById("btnCapturar").style.display = "none";
-    document.getElementById("btnTrocar").style.display = "none";
+        mostrarEtapa("etapaAprovacao");
 
     // Mostra os botões da foto
-    document.getElementById("btnNovaFoto").style.display = "block";
-    document.getElementById("btnContinuar").style.display = "block";
+        mostrarEtapa("etapaAprovacao");
 
 }
 
@@ -33,10 +35,16 @@ function novaFoto() {
     document.getElementById("camera").style.display = "block";
     document.getElementById("fotoCapturada").style.display = "none";
 
-    document.getElementById("btnCapturar").style.display = "block";
-    document.getElementById("btnTrocar").style.display = "block";
+    mostrarEtapa("etapaCaptura");
 
-    document.getElementById("btnNovaFoto").style.display = "none";
-    document.getElementById("btnContinuar").style.display = "none";
+}
+
+function mostrarEtapa(etapa) {
+
+    document.getElementById("etapaCaptura").style.display = "none";
+    document.getElementById("etapaAprovacao").style.display = "none";
+    document.getElementById("etapaEnvio").style.display = "none";
+
+    document.getElementById(etapa).style.display = "block";
 
 }
