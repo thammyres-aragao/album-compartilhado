@@ -4,6 +4,8 @@ function gerarNomeArquivo() {
 
     const data = agora.toISOString().replace(/[-:.TZ]/g, "");
 
-    return `${EVENTO.id}_${data}.jpg`;
+    const aleatorio = Math.random().toString(36).substring(2, 8).toUpperCase();
+
+    return `${EVENTO.EventoId}_${data}_${aleatorio}.jpg`;
 
 }
