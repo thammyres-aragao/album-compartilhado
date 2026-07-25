@@ -6,8 +6,8 @@ async function testarAPI() {
 
         const formData = new URLSearchParams();
 
-        formData.append("eventoId", EVENTO.id);
-        formData.append("eventoNome", EVENTO.nome);
+        formData.append("acao", "uploadFoto");
+        formData.append("eventoId", EVENTO.EventoId);
         formData.append("arquivo", gerarNomeArquivo());
         formData.append("legenda", document.getElementById("legenda").value);
         formData.append("imagem", imagemCapturada);

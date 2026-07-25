@@ -2,32 +2,56 @@ console.log("✔ app.js carregado");
 
 document.addEventListener("DOMContentLoaded", async () => {
 
-    console.log("🚀 Celebre Moments iniciado.");
+    try {
 
-    await iniciarCamera();
+        console.log("🚀 Celebre Moments iniciado.");
 
-    document
-        .getElementById("btnTrocar")
-        .addEventListener("click", trocarCamera);
+        await carregarEvento();
 
-    document
-        .getElementById("btnCapturar")
-        .addEventListener("click", capturarFoto);
+        console.log(EVENTO);
 
-    document
-    .getElementById("btnNovaFoto")
-    .addEventListener("click", novaFoto);
+        atualizarTelaEvento();
 
-    document
-    .getElementById("btnContinuar")
-    .addEventListener("click", () => {
+        await iniciarCamera();
 
-        mostrarEtapa("etapaEnvio");
+        document
+            .getElementById("btnTrocar")
+            .addEventListener("click", trocarCamera);
 
-    });
+        document
+            .getElementById("btnCapturar")
+            .addEventListener("click", capturarFoto);
 
-    document
-    .getElementById("btnEnviar")
-    .addEventListener("click", testarAPI);
+        document
+            .getElementById("btnNovaFoto")
+            .addEventListener("click", novaFoto);
+
+        document
+            .getElementById("btnContinuar")
+            .addEventListener("click", () => {
+
+                mostrarEtapa("etapaEnvio");
+
+            });
+
+        document
+            .getElementById("btnEnviar")
+            .addEventListener("click", testarAPI);
+
+    }
+
+    catch (erro) {
+
+        console.error(erro);
+
+        alert(erro.message);
+
+    }
 
 });
+
+function atualizarTelaEvento() {
+
+    document.title = EVENTO.NomeEvento;
+
+}
