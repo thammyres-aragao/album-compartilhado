@@ -70,9 +70,10 @@ h1{
     text-align:center;
 
     color:var(--cor-primaria);
-    opacity:.65;
 
-    font-size:32px;
+    font-size:28px;
+
+    margin-top:10px;
 
 }
 
@@ -80,29 +81,50 @@ h1{
 
     text-align:center;
 
-    color:#c5abf6;
+    color:var(--cor-texto);
+
+    opacity:.75;
 
     margin-top:8px;
 
     margin-bottom:25px;
 
+    font-size:15px;
+
 }
 
-.evento{
 
-    background:var(--cor-secundaria);
-
-    color:var(--cor-texto);
-
-    text-align:center;
-
-    padding:14px;
-
-    border-radius:12px;
+.evento-info{
 
     margin-bottom:25px;
 
+    text-align:center;
+
+    padding-bottom:20px;
+
+    border-bottom:1px solid rgba(0,0,0,.08);
+
+}
+
+#nomeEvento{
+
+    color:var(--cor-primaria);
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:10px;
+
+}
+
+#mensagemBoasVindas{
+
+    color:var(--cor-texto);
+
     font-size:15px;
+
+    font-weight:400;
 
 }
 
