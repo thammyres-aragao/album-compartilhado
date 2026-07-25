@@ -13,10 +13,12 @@
 }
 
 *{
+
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
+
 }
 
 body{
@@ -24,9 +26,7 @@ body{
     background:var(--cor-secundaria);
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     min-height:100vh;
@@ -38,7 +38,6 @@ body{
 .container{
 
     width:100%;
-
     max-width:450px;
 
 }
@@ -49,246 +48,21 @@ body{
 
     border-radius:22px;
 
-    padding:24px;
+    padding:28px;
 
     box-shadow:0 20px 50px rgba(0,0,0,.10);
 
 }
 
+/* ===========================
+   LOGO / MARCA
+=========================== */
+
 .logo{
 
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    margin-bottom:20px;
-
-}
-
-h1{
-
-    color:var(--cor-primaria);
-
-    font-size:20px;
-
-    font-weight:500;
-
-    margin-top:6px;
-
-}
-
-.slogan{
-
     text-align:center;
 
-    color:var(--cor-texto);
-
-    opacity:.55;
-
-    font-size:13px;
-
-    margin-top:4px;
-
-    margin-bottom:18px;
-
-}
-
-
-.evento-info{
-
-    margin-bottom:25px;
-
-    text-align:center;
-
-    padding-bottom:20px;
-
-    border-bottom:1px solid rgba(0,0,0,.08);
-
-}
-
-#nomeEvento{
-
-    color:var(--cor-primaria);
-
-    font-size:32px;
-
-    font-weight:700;
-
-    line-height:1.2;
-
-    margin-bottom:10px;
-
-}
-
-#mensagemBoasVindas{
-
-    color:var(--cor-texto);
-
-    font-size:17px;
-
-    font-weight:400;
-
-    line-height:1.5;
-
-}
-
-.preview{
-
-    width:100%;
-
-    height:450px;
-
-    border:2px solid rgba(0,0,0,.08);
-
-    border-radius:16px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    color:#94A3B8;
-
     margin-bottom:20px;
-
-    text-align:center;
-
-    overflow:hidden;
-
-    
-
-}
-
-    .preview video,
-    .preview canvas,
-    .preview img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    border-radius:14px;
-
-}
-
-#camera{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
-
-}
-
-.btn{
-
-    width:100%;
-
-    border:none;
-
-    padding:12px;
-
-    margin-bottom:8px;
-
-    border-radius:10px;
-
-    background:var(--cor-primaria);
-
-    color:white;
-
-    font-size:15px;
-
-    font-weight:500;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.btn:hover{
-
-    background:var(--cor-primaria);
-    filter:brightness(.92);
-
-}
-
-textarea{
-
-    width:100%;
-
-    resize:none;
-
-    height:90px;
-
-    padding:15px;
-
-    border-radius:12px;
-
-    border:1px solid #CBD5E1;
-
-    margin-top:10px;
-
-    margin-bottom:20px;
-
-    outline:none;
-
-    font-size:15px;
-
-}
-
-.btn-enviar{
-
-    width:100%;
-
-    padding:14px;
-
-    border:none;
-
-    border-radius:14px;
-
-    background:linear-gradient(90deg, var(--cor-secundaria), var(--cor-primaria));
-
-    color:white;
-
-    font-size:16px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-.btn-enviar:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:0 12px 30px rgba(37,99,235,.35);
-
-}
-
-.mensagem-evento{
-
-    text-align:center;
-
-    margin-top:-10px;
-
-    margin-bottom:20px;
-
-    color:var(--cor-texto);
-
-    font-size:15px;
 
 }
 
@@ -296,13 +70,16 @@ textarea{
 
     display:none;
 
-    max-width:110px;
-
+    max-width:220px;
     max-height:110px;
 
-    object-fit:contain;
+    margin:auto;
 
-    margin-bottom:15px;
+}
+
+#marcaSistema{
+
+    display:block;
 
 }
 
@@ -312,23 +89,158 @@ textarea{
 
     font-size:38px;
 
+    margin-bottom:6px;
+
+}
+
+#tituloSistema{
+
+    font-size:22px;
+
+    font-weight:500;
+
+    color:var(--cor-primaria);
+
+    opacity:.75;
+
+}
+
+.slogan{
+
+    margin-top:5px;
+
+    font-size:13px;
+
+    color:var(--cor-primaria);
+
+    opacity:.60;
+
+}
+
+/* ===========================
+   EVENTO
+=========================== */
+
+.evento{
+
+    background:var(--cor-secundaria);
+
+    color:var(--cor-texto);
+
+    text-align:center;
+
+    padding:18px;
+
+    border-radius:14px;
+
+    margin-bottom:22px;
+
+}
+
+.evento h2{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    margin-bottom:8px;
+
+}
+
+.evento p{
+
+    font-size:15px;
+
+    opacity:.85;
+
+    line-height:1.4;
+
+}
+
+/* ===========================
+   PREVIEW
+=========================== */
+
+.preview{
+
+    width:100%;
+
+    height:360px;
+
+    border:3px dashed #d7dbe3;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    margin-bottom:22px;
+
+}
+
+.preview video,
+.preview canvas,
+.preview img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:16px;
+
+}
+
+#camera{
+
+    display:block;
+
+}
+
+/* ===========================
+   BOTÕES
+=========================== */
+
+.btn{
+
+    width:100%;
+
+    padding:15px;
+
+    margin-bottom:10px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:var(--cor-primaria);
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-1px);
+
 }
 
 .btn-secundario{
 
-    background:#F3F4F6;
+    background:#edf0f5;
 
-    color:#374151;
-
-    border:1px solid #E5E7EB;
-
-}
-
-.btn-secundario:hover{
-
-    background:#E5E7EB;
-
-    filter:none;
+    color:#444;
 
 }
 
@@ -344,12 +256,98 @@ textarea{
 
     margin-bottom:0;
 
-    flex:1;
+    padding:13px;
+
+    font-size:15px;
 
 }
 
-#marcaSistema{
+.btn-enviar{
 
-    text-align:center;
+    width:100%;
+
+    padding:17px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:linear-gradient(90deg,var(--cor-primaria),#8d74cb);
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.btn-enviar:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+
+}
+
+/* ===========================
+   LEGENDA
+=========================== */
+
+textarea{
+
+    width:100%;
+
+    height:90px;
+
+    resize:none;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    border:1px solid #d7dbe3;
+
+    outline:none;
+
+    font-size:15px;
+
+    margin-bottom:20px;
+
+}
+
+textarea:focus{
+
+    border-color:var(--cor-primaria);
+
+}
+
+/* ===========================
+   RESPONSIVO
+=========================== */
+
+@media (max-width:480px){
+
+    .card{
+
+        padding:22px;
+
+    }
+
+    .preview{
+
+        height:320px;
+
+    }
+
+    .evento h2{
+
+        font-size:26px;
+
+    }
 
 }
