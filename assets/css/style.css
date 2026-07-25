@@ -4,6 +4,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+:root{
+
+    --cor-primaria:#6d55a5;
+    --cor-secundaria:#ece2fc;
+    --cor-texto:#503a87;
+
+}
+
 *{
     margin:0;
     padding:0;
@@ -13,7 +21,7 @@
 
 body{
 
-    background:#ece2fc;
+    background:var(--cor-secundaria);
 
     display:flex;
 
@@ -61,7 +69,8 @@ h1{
 
     text-align:center;
 
-    color:#8b71c4;
+    color:var(--cor-primaria);
+    opacity:.65;
 
     font-size:32px;
 
@@ -81,9 +90,9 @@ h1{
 
 .evento{
 
-    background:#ece2fc;
+    background:var(--cor-secundaria);
 
-    color:#503a87;
+    color:var(--cor-texto);
 
     text-align:center;
 
@@ -162,7 +171,7 @@ h1{
 
     border-radius:12px;
 
-    background:#6d55a5;
+    background:var(--cor-primaria);
 
     color:white;
 
@@ -176,7 +185,8 @@ h1{
 
 .btn:hover{
 
-    background:#6d55a5;
+    background:var(--cor-primaria);
+    filter:brightness(.92);
 
 }
 
@@ -214,7 +224,7 @@ textarea{
 
     border-radius:14px;
 
-    background:linear-gradient(90deg,#aa8ee4,#6d55a5);
+    background:linear-gradient(90deg, var(--cor-secundaria), var(--cor-primaria));
 
     color:white;
 
@@ -233,5 +243,37 @@ textarea{
     transform:translateY(-2px);
 
     box-shadow:0 12px 30px rgba(37,99,235,.35);
+
+}
+
+.mensagem-evento{
+
+    text-align:center;
+
+    margin-top:-10px;
+
+    margin-bottom:20px;
+
+    color:var(--cor-texto);
+
+    font-size:15px;
+
+}
+
+#logoEvento{
+
+    max-width:90px;
+
+    max-height:90px;
+
+    display:none;
+
+    margin:auto;
+
+}
+
+#logoPadrao{
+
+    font-size:50px;
 
 }
