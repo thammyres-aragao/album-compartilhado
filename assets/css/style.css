@@ -23,10 +23,12 @@
 
 body{
 
-    background:var(--cor-secundaria);
+    background:#ece2fc;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
     min-height:100vh;
@@ -44,25 +46,25 @@ body{
 
 .card{
 
-    background:white;
+    background:#fff;
 
     border-radius:22px;
 
-    padding:28px;
+    padding:24px;
 
     box-shadow:0 20px 50px rgba(0,0,0,.10);
 
 }
 
 /* ===========================
-   LOGO / MARCA
+   LOGO
 =========================== */
 
 .logo{
 
     text-align:center;
 
-    margin-bottom:20px;
+    margin-bottom:12px;
 
 }
 
@@ -71,6 +73,7 @@ body{
     display:none;
 
     max-width:220px;
+
     max-height:110px;
 
     margin:auto;
@@ -87,33 +90,33 @@ body{
 
     display:block;
 
-    font-size:38px;
+    font-size:28px;
 
-    margin-bottom:6px;
+    margin-bottom:4px;
 
 }
 
 #tituloSistema{
 
-    font-size:22px;
+    font-size:18px;
 
     font-weight:500;
 
     color:var(--cor-primaria);
 
-    opacity:.75;
+    opacity:.70;
 
 }
 
 .slogan{
 
-    margin-top:5px;
+    margin-top:4px;
 
-    font-size:13px;
+    font-size:11px;
 
     color:var(--cor-primaria);
 
-    opacity:.60;
+    opacity:.55;
 
 }
 
@@ -123,15 +126,7 @@ body{
 
 .evento{
 
-    background:var(--cor-secundaria);
-
-    color:var(--cor-texto);
-
     text-align:center;
-
-    padding:18px;
-
-    border-radius:14px;
 
     margin-bottom:22px;
 
@@ -139,9 +134,13 @@ body{
 
 .evento h2{
 
-    font-size:30px;
+    font-size:36px;
 
     font-weight:700;
+
+    color:var(--cor-texto);
+
+    line-height:1.2;
 
     margin-bottom:8px;
 
@@ -149,11 +148,13 @@ body{
 
 .evento p{
 
-    font-size:15px;
+    font-size:16px;
 
-    opacity:.85;
+    color:var(--cor-texto);
 
-    line-height:1.4;
+    opacity:.75;
+
+    line-height:1.5;
 
 }
 
@@ -165,7 +166,7 @@ body{
 
     width:100%;
 
-    height:360px;
+    height:450px;
 
     border:3px dashed #d7dbe3;
 
@@ -179,7 +180,7 @@ body{
 
     overflow:hidden;
 
-    margin-bottom:22px;
+    margin-bottom:20px;
 
 }
 
@@ -188,6 +189,7 @@ body{
 .preview img{
 
     width:100%;
+
     height:100%;
 
     object-fit:cover;
@@ -210,19 +212,19 @@ body{
 
     width:100%;
 
-    padding:15px;
-
-    margin-bottom:10px;
-
     border:none;
 
     border-radius:12px;
 
+    padding:14px;
+
+    margin-bottom:10px;
+
     background:var(--cor-primaria);
 
-    color:white;
+    color:#fff;
 
-    font-size:16px;
+    font-size:15px;
 
     cursor:pointer;
 
@@ -232,7 +234,7 @@ body{
 
 .btn:hover{
 
-    transform:translateY(-1px);
+    opacity:.92;
 
 }
 
@@ -240,7 +242,7 @@ body{
 
     background:#edf0f5;
 
-    color:#444;
+    color:#555;
 
 }
 
@@ -258,45 +260,7 @@ body{
 
     padding:13px;
 
-    font-size:15px;
-
 }
-
-.btn-enviar{
-
-    width:100%;
-
-    padding:17px;
-
-    border:none;
-
-    border-radius:14px;
-
-    background:linear-gradient(90deg,var(--cor-primaria),#8d74cb);
-
-    color:white;
-
-    font-size:17px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.25s;
-
-}
-
-.btn-enviar:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:0 12px 30px rgba(0,0,0,.15);
-
-}
-
-/* ===========================
-   LEGENDA
-=========================== */
 
 textarea{
 
@@ -316,7 +280,7 @@ textarea{
 
     font-size:15px;
 
-    margin-bottom:20px;
+    margin-bottom:18px;
 
 }
 
@@ -326,27 +290,65 @@ textarea:focus{
 
 }
 
+.btn-enviar{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:linear-gradient(90deg,var(--cor-primaria),#8d74cb);
+
+    color:#fff;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.btn-enviar:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+
+}
+
 /* ===========================
    RESPONSIVO
 =========================== */
 
 @media (max-width:480px){
 
+    body{
+
+        padding:16px;
+
+    }
+
     .card{
 
-        padding:22px;
+        padding:20px;
 
     }
 
     .preview{
 
-        height:320px;
+        height:400px;
 
     }
 
     .evento h2{
 
-        font-size:26px;
+        font-size:30px;
 
     }
 
