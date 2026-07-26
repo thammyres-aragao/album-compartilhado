@@ -23,6 +23,13 @@ function capturarFoto() {
 
     video.style.display = "none";
     img.style.display = "block";
+    document.getElementById("previewInfo").style.display = "block";
+
+    document.getElementById("tituloPreview").textContent =
+        "Confira sua foto";
+
+    document.getElementById("contadorPreview").textContent =
+        "Foto 1 de 1";
 
     mostrarEtapa("etapaAprovacao");
 
@@ -37,6 +44,10 @@ function novaFoto() {
     document.getElementById("fotoCapturada").style.display = "none";
 
     document.getElementById("fotoCapturada").src = "";
+
+    document.getElementById("previewInfo").style.display = "none";
+
+    document.getElementById("miniaturas").style.display = "none";
 
     mostrarEtapa("etapaCaptura");
 
@@ -83,6 +94,14 @@ function carregarImagemGaleria(evento) {
         document.getElementById("camera").style.display = "none";
 
         img.style.display = "block";
+
+        document.getElementById("previewInfo").style.display = "block";
+
+        document.getElementById("tituloPreview").textContent =
+            "Confira sua foto";
+
+        document.getElementById("contadorPreview").textContent =
+            "Foto 1 de 1";
 
         mostrarEtapa("etapaAprovacao");
 

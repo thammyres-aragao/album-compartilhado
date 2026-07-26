@@ -536,3 +536,47 @@ textarea:focus{
     }
 
 }
+
+/* ===========================
+   PREVIEW
+=========================== */
+
+.preview-info{
+
+    text-align:center;
+
+    margin-bottom:15px;
+
+}
+
+.preview-info h3{
+
+    font-size:20px;
+
+    font-weight:600;
+
+    color:var(--cor-texto);
+
+}
+
+.preview-info p{
+
+    margin-top:4px;
+
+    font-size:14px;
+
+    color:#7b8794;
+
+}
+
+.miniaturas{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:8px;
+
+    margin-top:15px;
+
+}
