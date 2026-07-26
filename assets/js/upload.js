@@ -18,52 +18,66 @@ async function testarAPI() {
 
         }
 
-        const formData = new URLSearchParams();
-
-        formData.append("acao", "uploadFoto");
-        formData.append("eventoId", EVENTO.EventoId);
-        formData.append("arquivo", gerarNomeArquivo());
-        formData.append("legenda", document.getElementById("legenda").value);
-        formData.append("imagem", imagensSelecionadas[0]);
-
         document.getElementById("loading").style.display = "flex";
 
-        const resposta = await fetch(API_URL, {
+        const total = imagensSelecionadas.length;
 
-            method: "POST",
-            body: formData
+        for (let i = 0; i < total; i++) {
 
-        });
+            document.getElementById("loadingTitulo").textContent =
+                total > 1
+                    ? "Enviando fotos..."
+                    : "Enviando foto...";
 
-        const dados = await resposta.json();
+            document.getElementById("loadingTexto").textContent =
+                `Foto ${i + 1} de ${total}`;
+
+            const formData = new URLSearchParams();
+
+            formData.append("acao", "uploadFoto");
+            formData.append("eventoId", EVENTO.EventoId);
+            formData.append("arquivo", gerarNomeArquivo());
+            formData.append(
+                "legenda",
+                document.getElementById("legenda").value
+            );
+            formData.append(
+                "imagem",
+                imagensSelecionadas[i]
+            );
+
+            const resposta = await fetch(API_URL, {
+
+                method: "POST",
+                body: formData
+
+            });
+
+            const dados = await resposta.json();
+
+            console.log(`Foto ${i + 1}:`, dados);
+
+            if (dados.status !== "ok") {
+
+                throw new Error(dados.mensagem);
+
+            }
+
+        }
 
         document.getElementById("loading").style.display = "none";
 
-        console.log(dados);
+        mostrarModal(
 
-        if (dados.status === "ok") {
+            "Obrigado!",
 
-            mostrarModal(
+            total === 1
+                ? (EVENTO.MensagemAgradecimento || "Foto enviada com sucesso.")
+                : `${total} fotos foram compartilhadas com sucesso!`,
 
-                "Obrigado!",
+            reiniciarAplicacao
 
-                EVENTO.MensagemAgradecimento || dados.mensagem,
-
-                reiniciarAplicacao
-
-            );
-
-        } else {
-
-            mostrarModal(
-
-                "Ops!",
-
-                dados.mensagem
-
-            );
-
-        }
+        );
 
     }
 
@@ -77,7 +91,7 @@ async function testarAPI() {
 
             "Erro",
 
-            "Não foi possível enviar sua foto. Tente novamente."
+            erro.message || "Não foi possível enviar as fotos."
 
         );
 
