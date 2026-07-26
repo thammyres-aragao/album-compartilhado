@@ -50,6 +50,8 @@ function novaFoto() {
 
     document.getElementById("miniaturas").style.display = "none";
 
+    document.getElementById("miniaturas").innerHTML = "";
+
     mostrarEtapa("etapaCaptura");
 
 }
@@ -154,6 +156,8 @@ function exibirImagemAtual() {
 
     atualizarNavegacaoPreview();
 
+    tualizarMiniaturas();
+
 }
 
 function proximaImagem() {
@@ -177,5 +181,93 @@ function imagemAnterior() {
         exibirImagemAtual();
 
     }
+
+}
+
+function atualizarMiniaturas() {
+
+    const container = document.getElementById("miniaturas");
+
+    container.innerHTML = "";
+
+    if (imagensSelecionadas.length <= 1) {
+
+        container.style.display = "none";
+
+        return;
+
+    }
+
+    container.style.display = "flex";
+
+    imagensSelecionadas.forEach((imagem, indice) => {
+
+        const item = document.createElement("div");
+
+        item.className = "miniatura-item";
+
+        if (indice === indiceImagemAtual) {
+
+            item.classList.add("ativa");
+
+        }
+
+        const img = document.createElement("img");
+
+        img.src = imagem;
+
+        img.className = "miniatura";
+
+        img.onclick = () => {
+
+            indiceImagemAtual = indice;
+
+            exibirImagemAtual();
+
+        };
+
+        item.appendChild(img);
+
+        const remover = document.createElement("button");
+
+        remover.className = "btn-remover-miniatura";
+
+        remover.innerHTML = "✕";
+
+        remover.onclick = (e) => {
+
+            e.stopPropagation();
+
+            removerImagem(indice);
+
+        };
+
+        item.appendChild(remover);
+
+        container.appendChild(item);
+
+    });
+
+}
+
+function removerImagem(indice) {
+
+    imagensSelecionadas.splice(indice, 1);
+
+    if (imagensSelecionadas.length === 0) {
+
+        novaFoto();
+
+        return;
+
+    }
+
+    if (indiceImagemAtual >= imagensSelecionadas.length) {
+
+        indiceImagemAtual = imagensSelecionadas.length - 1;
+
+    }
+
+    exibirImagemAtual();
 
 }

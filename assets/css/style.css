@@ -195,6 +195,8 @@ body{
 
     border-radius:16px;
 
+    transition:opacity .25s ease;
+
 }
 
 #camera{
@@ -581,11 +583,27 @@ textarea::placeholder{
 
     display:flex;
 
-    justify-content:center;
+    gap:10px;
 
-    gap:8px;
+    overflow-x:auto;
+
+    padding:12px 2px;
 
     margin-top:15px;
+
+    scroll-behavior:smooth;
+
+}
+
+.miniaturas::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.miniaturas{
+
+    scrollbar-width:none;
 
 }
 
@@ -730,5 +748,101 @@ textarea::placeholder{
     margin-top:8px;
 
     color:#666;
+
+}
+
+.miniatura-item{
+
+    position:relative;
+
+    flex-shrink:0;
+
+    border-radius:12px;
+
+    overflow:visible;
+
+    transition:.25s;
+
+}
+
+.miniatura{
+
+    width:72px;
+
+    height:72px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    display:block;
+
+    transition:.25s;
+
+}
+
+.miniatura:hover{
+
+    transform:scale(1.06);
+
+}
+
+.miniatura-item.ativa{
+
+    outline:3px solid var(--cor-primaria);
+
+    outline-offset:3px;
+
+    transform:scale(1.05);
+
+}
+
+.btn-remover-miniatura{
+
+    position:absolute;
+
+    top:-6px;
+
+    right:-6px;
+
+    width:22px;
+
+    height:22px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#d32f2f;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-shadow:0 2px 6px rgba(0,0,0,.25);
+
+    transition:.2s;
+
+    z-index:5;
+
+}
+
+.btn-remover-miniatura:hover{
+
+    transform:scale(1.15);
+
+    background:#b71c1c;
 
 }
