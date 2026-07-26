@@ -21,6 +21,8 @@ function capturarFoto() {
 
     imagensSelecionadas = [imagem];
 
+    atualizarContadorFotos();
+
     indiceImagemAtual = 0;
 
     exibirImagemAtual();
@@ -28,6 +30,10 @@ function capturarFoto() {
     video.style.display = "none";
     img.style.display = "block";
     document.getElementById("previewInfo").style.display = "block";
+
+    document.getElementById("acoesGaleria").style.display = "flex";
+
+    atualizarContadorFotos();
 
     document.getElementById("tituloPreview").textContent =
         "Confira sua foto";
@@ -48,9 +54,15 @@ function novaFoto() {
 
     document.getElementById("previewInfo").style.display = "none";
 
-    document.getElementById("miniaturas").style.display = "none";
+    document.getElementById("miniaturasWrapper").style.display = "none";
+
+    document.getElementById("acoesGaleria").style.display = "none";
 
     document.getElementById("miniaturas").innerHTML = "";
+
+    document.getElementById("btnAnterior").style.display = "none";
+
+    document.getElementById("btnProximo").style.display = "none";
 
     mostrarEtapa("etapaCaptura");
 
@@ -84,9 +96,33 @@ function carregarImagemGaleria(evento) {
 
     }
 
-    imagensSelecionadas = [];
+    const limite = 10;
 
-    indiceImagemAtual = 0;
+    if (imagensSelecionadas.length >= limite) {
+
+        mostrarModal(
+            "Limite atingido",
+            "Você pode selecionar no máximo 10 fotos."
+        );
+
+        evento.target.value = "";
+
+        return;
+
+    }
+
+    const espacoDisponivel = limite - imagensSelecionadas.length;
+
+    if (arquivos.length > espacoDisponivel) {
+
+        mostrarModal(
+            "Limite de fotos",
+            `Você já possui ${imagensSelecionadas.length} foto(s) selecionada(s).\n\nVocê pode adicionar apenas mais ${espacoDisponivel}.`
+        );
+
+        arquivos.splice(espacoDisponivel);
+
+    }
 
     let arquivosCarregados = 0;
 
@@ -102,6 +138,8 @@ function carregarImagemGaleria(evento) {
 
             if (arquivosCarregados === arquivos.length) {
 
+                indiceImagemAtual = imagensSelecionadas.length - arquivos.length;
+
                 exibirImagemAtual();
 
                 document.getElementById("camera").style.display = "none";
@@ -110,10 +148,14 @@ function carregarImagemGaleria(evento) {
 
                 document.getElementById("previewInfo").style.display = "block";
 
+                document.getElementById("acoesGaleria").style.display = "flex";
+
                 document.getElementById("tituloPreview").textContent =
-                    arquivos.length > 1
+                    imagensSelecionadas.length > 1
                         ? "Confira suas fotos"
                         : "Confira sua foto";
+
+                atualizarContadorFotos();
 
                 mostrarEtapa("etapaAprovacao");
 
@@ -124,6 +166,8 @@ function carregarImagemGaleria(evento) {
         leitor.readAsDataURL(arquivo);
 
     });
+
+    evento.target.value = "";
 
 }
 
@@ -150,13 +194,25 @@ function exibirImagemAtual() {
 
     const img = document.getElementById("fotoCapturada");
 
-    img.src = imagensSelecionadas[indiceImagemAtual];
+    img.style.opacity = "0";
+
+    setTimeout(() => {
+
+        img.src = imagensSelecionadas[indiceImagemAtual];
+
+        img.onload = () => {
+
+            img.style.opacity = "1";
+
+        };
+
+    }, 120);
 
     atualizarContadorPreview();
 
     atualizarNavegacaoPreview();
 
-    tualizarMiniaturas();
+    atualizarMiniaturas();
 
 }
 
@@ -190,15 +246,17 @@ function atualizarMiniaturas() {
 
     container.innerHTML = "";
 
+    const wrapper = document.getElementById("miniaturasWrapper");
+
     if (imagensSelecionadas.length <= 1) {
 
-        container.style.display = "none";
+        wrapper.style.display = "none";
 
         return;
 
     }
 
-    container.style.display = "flex";
+    wrapper.style.display = "flex";
 
     imagensSelecionadas.forEach((imagem, indice) => {
 
@@ -248,11 +306,21 @@ function atualizarMiniaturas() {
 
     });
 
+    atualizarSetasMiniaturas();
+
 }
 
 function removerImagem(indice) {
 
     imagensSelecionadas.splice(indice, 1);
+
+    if (imagensSelecionadas.length <= 1) {
+
+        document.getElementById("btnAnterior").style.display = "none";
+
+        document.getElementById("btnProximo").style.display = "none";
+
+    }
 
     if (imagensSelecionadas.length === 0) {
 
@@ -268,6 +336,61 @@ function removerImagem(indice) {
 
     }
 
+    atualizarContadorFotos();
+
     exibirImagemAtual();
+
+}
+
+function atualizarContadorFotos() {
+
+    const total = imagensSelecionadas.length;
+
+    const contador =
+        document.getElementById("contadorFotos");
+
+    contador.textContent =
+        `${total} / 10 fotos`;
+
+    const botao =
+        document.getElementById("btnAdicionarFotos");
+
+    botao.disabled = total >= 10;
+
+}
+
+function miniaturasAnterior() {
+
+    document.getElementById("miniaturas").scrollBy({
+
+        left: -220,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+function miniaturasProximo() {
+
+    document.getElementById("miniaturas").scrollBy({
+
+        left: 220,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+function atualizarSetasMiniaturas() {
+
+    const mostrar = imagensSelecionadas.length > 5;
+
+    document.getElementById("btnMiniAnterior").style.display =
+        mostrar ? "block" : "none";
+
+    document.getElementById("btnMiniProximo").style.display =
+        mostrar ? "block" : "none";
 
 }

@@ -34,6 +34,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             .addEventListener("click", abrirGaleria);
 
         document
+            .getElementById("btnAdicionarFotos")
+            .addEventListener("click", abrirGaleria);
+
+        document
             .getElementById("btnNovaFoto")
             .addEventListener("click", novaFoto);
 
@@ -56,6 +60,14 @@ document.addEventListener("DOMContentLoaded", async () => {
         document
             .getElementById("btnProximo")
             .addEventListener("click", proximaImagem);
+
+        document
+            .getElementById("btnMiniAnterior")
+            .addEventListener("click", miniaturasAnterior);
+
+        document
+            .getElementById("btnMiniProximo")
+            .addEventListener("click", miniaturasProximo);
 
         document
             .getElementById("inputGaleria")
@@ -128,6 +140,10 @@ async function reiniciarAplicacao() {
     imagemCapturada = null;
 
     document.getElementById("legenda").value = "";
+
+    document.getElementById("btnAnterior").style.display = "none";
+
+    document.getElementById("btnProximo").style.display = "none";
 
     novaFoto();
 
