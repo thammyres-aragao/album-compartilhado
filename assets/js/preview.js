@@ -22,8 +22,6 @@ function capturarFoto() {
     video.style.display = "none";
     img.style.display = "block";
 
-    // Esconde os botões da câmera
-        mostrarEtapa("etapaAprovacao");
 
     // Mostra os botões da foto
         mostrarEtapa("etapaAprovacao");
@@ -32,12 +30,18 @@ function capturarFoto() {
 
 function novaFoto() {
 
+    imagemCapturada = null;
+
     document.getElementById("camera").style.display = "block";
+
     document.getElementById("fotoCapturada").style.display = "none";
+
+    document.getElementById("fotoCapturada").src = "";
 
     mostrarEtapa("etapaCaptura");
 
 }
+
 
 function mostrarEtapa(etapa) {
 

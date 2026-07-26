@@ -100,7 +100,7 @@
 
                 <textarea
                     id="legenda"
-                    placeholder="Escreva uma legenda...">
+                    placeholder="Escreva uma legenda...(Opcional)">
                 </textarea>
 
                 <button id="btnEnviar" class="btn-enviar">
@@ -109,9 +109,45 @@
 
             </div>
 
-        </div>
+            <div id="loading" class="loading" style="display:none;">
 
-    </div>
+                <div class="loading-box">
+
+                    <div class="spinner"></div>
+
+                        <h3>Enviando sua foto...</h3>
+
+                        <p>Aguarde alguns instantes.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="modalMensagem" class="modal" style="display:none;">
+
+                <div class="modal-box">
+
+                    <div id="modalIcone" class="modal-icone">
+                         ✔
+                    </div>
+
+                    <h2 id="modalTitulo">
+                         Obrigado!
+                    </h2>
+
+                    <p id="modalTexto"></p>
+
+                    <button id="btnModalOk" class="btn-enviar">
+                        OK
+                    </button>
+
+                 </div>
+
+            </div>
+
+        </div>
 
     <script src="assets/js/config.js"></script>
     <script src="assets/js/utils.js"></script>
@@ -120,6 +156,7 @@
     <script src="assets/js/upload.js"></script>
     <script src="assets/js/evento.js"></script>
     <script src="assets/js/nomeArquivo.js"></script>
+    <script src="assets/js/modal.js"></script>
     <script src="assets/js/app.js"></script>
 
 </body>

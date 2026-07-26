@@ -94,3 +94,15 @@ function atualizarTelaEvento() {
         }
 
 }
+
+async function reiniciarAplicacao() {
+
+    imagemCapturada = null;
+
+    document.getElementById("legenda").value = "";
+
+    novaFoto();
+
+    await iniciarCamera();
+
+} 
