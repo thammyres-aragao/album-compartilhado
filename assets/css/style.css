@@ -289,6 +289,14 @@ textarea:focus{
 
 }
 
+textarea::placeholder{
+
+    color:#9CA3AF;
+
+    opacity:1;
+
+}
+
 .btn-enviar{
 
     width:100%;
