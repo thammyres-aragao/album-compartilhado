@@ -51,3 +51,43 @@ function mostrarEtapa(etapa) {
     document.getElementById(etapa).style.display = "block";
 
 }
+
+function abrirGaleria() {
+
+    document
+        .getElementById("inputGaleria")
+        .click();
+
+}
+
+function carregarImagemGaleria(evento) {
+
+    const arquivo = evento.target.files[0];
+
+    if (!arquivo) {
+
+        return;
+
+    }
+
+    const leitor = new FileReader();
+
+    leitor.onload = function(e) {
+
+        imagensSelecionadas = [e.target.result];
+
+        const img = document.getElementById("fotoCapturada");
+
+        img.src = e.target.result;
+
+        document.getElementById("camera").style.display = "none";
+
+        img.style.display = "block";
+
+        mostrarEtapa("etapaAprovacao");
+
+    };
+
+    leitor.readAsDataURL(arquivo);
+
+}

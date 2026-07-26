@@ -23,6 +23,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             .addEventListener("click", capturarFoto);
 
         document
+            .getElementById("btnGaleria")
+            .addEventListener("click", abrirGaleria);
+
+        document
             .getElementById("btnNovaFoto")
             .addEventListener("click", novaFoto);
 
@@ -37,6 +41,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         document
             .getElementById("btnEnviar")
             .addEventListener("click", testarAPI);
+
+        document
+            .getElementById("inputGaleria")
+            .addEventListener("change", carregarImagemGaleria);
 
     }
 
