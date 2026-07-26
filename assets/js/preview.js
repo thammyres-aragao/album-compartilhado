@@ -1,5 +1,7 @@
 let imagensSelecionadas = [];
 
+let indiceImagemAtual = 0;
+
 console.log("✔ preview.js carregado");
 
 function capturarFoto() {
@@ -19,7 +21,9 @@ function capturarFoto() {
 
     imagensSelecionadas = [imagem];
 
-    img.src = imagem;
+    indiceImagemAtual = 0;
+
+    exibirImagemAtual();
 
     video.style.display = "none";
     img.style.display = "block";
@@ -27,9 +31,6 @@ function capturarFoto() {
 
     document.getElementById("tituloPreview").textContent =
         "Confira sua foto";
-
-    document.getElementById("contadorPreview").textContent =
-        "Foto 1 de 1";
 
     mostrarEtapa("etapaAprovacao");
 
@@ -73,40 +74,108 @@ function abrirGaleria() {
 
 function carregarImagemGaleria(evento) {
 
-    const arquivo = evento.target.files[0];
+    const arquivos = Array.from(evento.target.files);
 
-    if (!arquivo) {
+    if (arquivos.length === 0) {
 
         return;
 
     }
 
-    const leitor = new FileReader();
+    imagensSelecionadas = [];
 
-    leitor.onload = function(e) {
+    indiceImagemAtual = 0;
 
-        imagensSelecionadas = [e.target.result];
+    let arquivosCarregados = 0;
 
-        const img = document.getElementById("fotoCapturada");
+    arquivos.forEach((arquivo) => {
 
-        img.src = e.target.result;
+        const leitor = new FileReader();
 
-        document.getElementById("camera").style.display = "none";
+        leitor.onload = function (e) {
 
-        img.style.display = "block";
+            imagensSelecionadas.push(e.target.result);
 
-        document.getElementById("previewInfo").style.display = "block";
+            arquivosCarregados++;
 
-        document.getElementById("tituloPreview").textContent =
-            "Confira sua foto";
+            if (arquivosCarregados === arquivos.length) {
 
-        document.getElementById("contadorPreview").textContent =
-            "Foto 1 de 1";
+                exibirImagemAtual();
 
-        mostrarEtapa("etapaAprovacao");
+                document.getElementById("camera").style.display = "none";
 
-    };
+                document.getElementById("fotoCapturada").style.display = "block";
 
-    leitor.readAsDataURL(arquivo);
+                document.getElementById("previewInfo").style.display = "block";
+
+                document.getElementById("tituloPreview").textContent =
+                    arquivos.length > 1
+                        ? "Confira suas fotos"
+                        : "Confira sua foto";
+
+                mostrarEtapa("etapaAprovacao");
+
+            }
+
+        };
+
+        leitor.readAsDataURL(arquivo);
+
+    });
+
+}
+
+function atualizarContadorPreview() {
+
+    document.getElementById("contadorPreview").textContent =
+        `Foto ${indiceImagemAtual + 1} de ${imagensSelecionadas.length}`;
+
+}
+
+function atualizarNavegacaoPreview() {
+
+    const mostrar = imagensSelecionadas.length > 1;
+
+    document.getElementById("btnAnterior").style.display =
+        mostrar ? "block" : "none";
+
+    document.getElementById("btnProximo").style.display =
+        mostrar ? "block" : "none";
+
+}
+
+function exibirImagemAtual() {
+
+    const img = document.getElementById("fotoCapturada");
+
+    img.src = imagensSelecionadas[indiceImagemAtual];
+
+    atualizarContadorPreview();
+
+    atualizarNavegacaoPreview();
+
+}
+
+function proximaImagem() {
+
+    if (indiceImagemAtual < imagensSelecionadas.length - 1) {
+
+        indiceImagemAtual++;
+
+        exibirImagemAtual();
+
+    }
+
+}
+
+function imagemAnterior() {
+
+    if (indiceImagemAtual > 0) {
+
+        indiceImagemAtual--;
+
+        exibirImagemAtual();
+
+    }
 
 }

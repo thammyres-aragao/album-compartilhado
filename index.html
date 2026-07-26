@@ -58,6 +58,13 @@
 
             <div class="preview">
 
+                <button
+                    id="btnAnterior"
+                    class="preview-nav"
+                    style="display:none;">
+                    ❮
+                </button>
+
                 <video
                     id="camera"
                     autoplay
@@ -66,7 +73,7 @@
                 </video>
 
                 <canvas
-                    id="canvas"
+                     id="canvas"
                     style="display:none;">
                 </canvas>
 
@@ -74,11 +81,12 @@
                     id="fotoCapturada"
                     style="display:none;">
 
-                <input
-                    type="file"
-                    id="inputGaleria"
-                    accept="image/*"
+                <button
+                    id="btnProximo"
+                    class="preview-nav"
                     style="display:none;">
+                        ❯
+                </button>
 
             </div>
 
@@ -99,6 +107,13 @@
                 <button id="btnGaleria" class="btn btn-secundario">
                     🖼 Escolher da galeria
                 </button>
+
+                <input
+                    type="file"
+                    id="inputGaleria"
+                    accept="image/*"
+                    multiple
+                    hidden>
 
             </div>
 

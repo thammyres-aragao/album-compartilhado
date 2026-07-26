@@ -588,3 +588,62 @@ textarea::placeholder{
     margin-top:15px;
 
 }
+
+/* ===========================
+   Navegação do Preview
+=========================== */
+
+.preview{
+
+    position:relative;
+
+}
+
+.preview-nav{
+
+    position:absolute;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.85);
+
+    cursor:pointer;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.18);
+
+    z-index:10;
+
+}
+
+#btnAnterior{
+
+    left:12px;
+
+}
+
+#btnProximo{
+
+    right:12px;
+
+}
+
+.preview-nav:hover{
+
+    transform:translateY(-50%) scale(1.08);
+
+}
+

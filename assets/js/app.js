@@ -43,6 +43,14 @@ document.addEventListener("DOMContentLoaded", async () => {
             .addEventListener("click", testarAPI);
 
         document
+            .getElementById("btnAnterior")
+            .addEventListener("click", imagemAnterior);
+
+        document
+            .getElementById("btnProximo")
+            .addEventListener("click", proximaImagem);
+
+        document
             .getElementById("inputGaleria")
             .addEventListener("change", carregarImagemGaleria);
 
