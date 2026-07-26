@@ -692,3 +692,43 @@ textarea::placeholder{
     margin-bottom:10px;
 
 }
+
+.splash-screen{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#ffffff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    z-index:99999;
+
+}
+
+.splash-content{
+
+    text-align:center;
+
+}
+
+.splash-content h2{
+
+    margin-top:20px;
+
+    font-size:22px;
+
+}
+
+.splash-content p{
+
+    margin-top:8px;
+
+    color:#666;
+
+}

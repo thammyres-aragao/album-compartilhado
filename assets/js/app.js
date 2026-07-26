@@ -6,13 +6,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         console.log("🚀 Celebre Moments iniciado.");
 
+        // Carrega os dados do evento
         await carregarEvento();
 
         console.log(EVENTO);
 
+        // Aplica a personalização
         atualizarTelaEvento();
 
+        // Inicializa a câmera
         await iniciarCamera();
+
+        // Somente agora exibe a aplicação
+        document.getElementById("splashScreen").style.display = "none";
+        document.getElementById("app").style.display = "block";
 
         document
             .getElementById("btnTrocar")
@@ -58,11 +65,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     catch (erro) {
 
-        console.error(erro);
+    console.error(erro);
 
-        alert(erro.message);
+    document.getElementById("splashScreen").style.display = "none";
 
-    }
+    mostrarModal(
+        "Erro",
+        erro.message || "Não foi possível carregar o evento."
+    );
+
+}
 
 });
 
@@ -94,20 +106,20 @@ function atualizarTelaEvento() {
     const logo = document.getElementById("logoEvento");
     const marcaSistema = document.getElementById("marcaSistema");
 
-        if (EVENTO.Logo && EVENTO.Logo.trim() !== "") {
+    if (EVENTO.Logo && EVENTO.Logo.trim() !== "") {
 
-            logo.src = EVENTO.Logo;
-            logo.style.display = "block";
+        logo.src = EVENTO.Logo;
+        logo.style.display = "block";
 
-            marcaSistema.style.display = "none";
+        marcaSistema.style.display = "none";
 
-        } else {
+    } else {
 
-            logo.style.display = "none";
+        logo.style.display = "none";
 
-            marcaSistema.style.display = "block";
+        marcaSistema.style.display = "block";
 
-        }
+    }
 
 }
 
@@ -121,4 +133,4 @@ async function reiniciarAplicacao() {
 
     await iniciarCamera();
 
-} 
+}
