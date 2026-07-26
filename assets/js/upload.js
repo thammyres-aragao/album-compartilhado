@@ -4,13 +4,27 @@ async function testarAPI() {
 
     try {
 
+        if (imagensSelecionadas.length === 0) {
+
+            mostrarModal(
+
+                "Atenção",
+
+                "Nenhuma imagem foi selecionada."
+
+            );
+
+            return;
+
+        }
+
         const formData = new URLSearchParams();
 
         formData.append("acao", "uploadFoto");
         formData.append("eventoId", EVENTO.EventoId);
         formData.append("arquivo", gerarNomeArquivo());
         formData.append("legenda", document.getElementById("legenda").value);
-        formData.append("imagem", imagemCapturada);
+        formData.append("imagem", imagensSelecionadas[0]);
 
         document.getElementById("loading").style.display = "flex";
 

@@ -1,4 +1,4 @@
-let imagemCapturada = null;
+let imagensSelecionadas = [];
 
 console.log("✔ preview.js carregado");
 
@@ -15,22 +15,22 @@ function capturarFoto() {
 
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-   imagemCapturada = canvas.toDataURL("image/jpeg", 0.9);
+    const imagem = canvas.toDataURL("image/jpeg", 0.9);
 
-    img.src = imagemCapturada;
+    imagensSelecionadas = [imagem];
+
+    img.src = imagem;
 
     video.style.display = "none";
     img.style.display = "block";
 
-
-    // Mostra os botões da foto
-        mostrarEtapa("etapaAprovacao");
+    mostrarEtapa("etapaAprovacao");
 
 }
 
 function novaFoto() {
 
-    imagemCapturada = null;
+    imagensSelecionadas = [];
 
     document.getElementById("camera").style.display = "block";
 
@@ -41,7 +41,6 @@ function novaFoto() {
     mostrarEtapa("etapaCaptura");
 
 }
-
 
 function mostrarEtapa(etapa) {
 
