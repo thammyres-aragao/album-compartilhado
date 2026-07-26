@@ -20,17 +20,24 @@ async function testarAPI() {
 
         document.getElementById("loading").style.display = "flex";
 
+        document.getElementById("progressBar").style.width = "0%";
+
+        document.getElementById("loadingPercentual").textContent = "0%";
+
+        document.getElementById("loadingTexto").textContent =
+            "Preparando envio...";
+
         const total = imagensSelecionadas.length;
 
         for (let i = 0; i < total; i++) {
 
             document.getElementById("loadingTitulo").textContent =
                 total > 1
-                    ? "Enviando fotos..."
-                    : "Enviando foto...";
+                    ? "Enviando suas lembranças..."
+                    : "Enviando sua lembrança...";
 
             document.getElementById("loadingTexto").textContent =
-                `Foto ${i + 1} de ${total}`;
+                `Enviando foto ${i + 1} de ${total}...`;
 
             const formData = new URLSearchParams();
 
@@ -60,8 +67,21 @@ async function testarAPI() {
             if (dados.status !== "ok") {
 
                 throw new Error(dados.mensagem);
-
+        
             }
+
+// Atualiza o progresso somente após a foto ser enviada
+
+            const percentual = Math.round(((i + 1) / total) * 100);
+
+            document.getElementById("progressBar").style.width =
+                percentual + "%";
+
+            document.getElementById("loadingPercentual").textContent =
+                percentual + "%";
+
+            document.getElementById("loadingTexto").textContent =
+                `${i + 1} de ${total} fotos enviadas`;
 
         }
 

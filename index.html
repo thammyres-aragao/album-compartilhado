@@ -148,21 +148,32 @@
 
                 <div class="loading-box">
 
-                    <div class="spinner"></div>
-
                     <h3 id="loadingTitulo">
-                        Enviando fotos...
-                    </h3>
+                        Enviando suas lembranças...
+                     </h3>
 
-                    <p id="loadingTexto">
-                        Preparando envio...
-                    </p>
+                    <div class="progress">
+
+                        <div
+                            id="progressBar"
+                            class="progress-fill">
+                        </div>
+
+                </div>
+
+                 <p id="loadingPercentual">
+                    0%
+                </p>
+
+                <p id="loadingTexto">
+                    Preparando envio...
+                </p>
 
                 </div>
 
             </div>
 
-            </div>
+        </div>
 
             <div id="modalMensagem" class="modal" style="display:none;">
 
@@ -186,7 +197,7 @@
 
             </div>
 
-        </div>
+    </div>
 
     <script src="assets/js/config.js"></script>
     <script src="assets/js/utils.js"></script>
