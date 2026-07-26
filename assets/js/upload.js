@@ -20,6 +20,11 @@ async function testarAPI() {
 
         document.getElementById("loading").style.display = "flex";
 
+        document.getElementById("progressContainer").style.display = "block";
+
+        document.getElementById("loadingTitulo").textContent =
+            "Enviando suas lembranças...";
+
         document.getElementById("progressBar").style.width = "0%";
 
         document.getElementById("loadingPercentual").textContent = "0%";
@@ -83,17 +88,38 @@ async function testarAPI() {
             document.getElementById("loadingTexto").textContent =
                 `${i + 1} de ${total} fotos enviadas`;
 
+            // Na última foto, mantém os 100% visíveis por um instante
+            if (i === total - 1) {
+
+                document.getElementById("progressContainer").style.display = "none";
+
+                document.getElementById("loadingTitulo").textContent =
+                    "✅ Envio concluído!";
+
+                document.getElementById("loadingPercentual").textContent = "";
+
+                document.getElementById("loadingTexto").textContent =
+                    total === 1
+                        ? "Seu momento foi compartilhado com sucesso!"
+                        : "Seus momentos foram compartilhados com sucesso!";
+
+                await new Promise(resolve => setTimeout(resolve, 1200));
+
+            }
+
         }
 
         document.getElementById("loading").style.display = "none";
 
         mostrarModal(
 
-            "Obrigado!",
+            "Obrigado(a)!",
 
-            total === 1
-                ? (EVENTO.MensagemAgradecimento || "Foto enviada com sucesso.")
-                : `${total} fotos foram compartilhadas com sucesso!`,
+            EVENTO.MensagemAgradecimento ||
+
+            (total === 1
+                ? "Obrigado(a) por compartilhar este momento especial!"
+                : "Obrigado(a) por compartilhar seus momentos especiais!"),
 
             reiniciarAplicacao
 
