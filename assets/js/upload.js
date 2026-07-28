@@ -48,6 +48,7 @@ async function testarAPI() {
 
             formData.append("acao", "uploadFoto");
             formData.append("eventoId", EVENTO.EventoId);
+            formData.append("token", TOKEN);
             formData.append("arquivo", gerarNomeArquivo());
             formData.append(
                 "legenda",
