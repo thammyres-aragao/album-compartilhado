@@ -7,11 +7,9 @@ async function testarAPI() {
         if (imagensSelecionadas.length === 0) {
 
             mostrarModal(
-
                 "Atenção",
-
-                "Nenhuma imagem foi selecionada."
-
+                "Nenhuma imagem foi selecionada.",
+                "aviso"
             );
 
             return;
@@ -113,17 +111,13 @@ async function testarAPI() {
         document.getElementById("loading").style.display = "none";
 
         mostrarModal(
-
             "Obrigado(a)!",
-
             EVENTO.MensagemAgradecimento ||
-
             (total === 1
                 ? "Obrigado(a) por compartilhar este momento especial!"
                 : "Obrigado(a) por compartilhar seus momentos especiais!"),
-
+            "sucesso",
             reiniciarAplicacao
-
         );
 
     }
@@ -138,7 +132,9 @@ async function testarAPI() {
 
             "Erro",
 
-            erro.message || "Não foi possível enviar as fotos."
+            erro.message || "Não foi possível enviar as fotos.",
+
+            "erro"
 
         );
 

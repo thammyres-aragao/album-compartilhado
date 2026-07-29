@@ -1,7 +1,7 @@
 let EVENTO = null;
 let TOKEN = null;
 
-async function carregarEvento() {
+    async function carregarEvento() {
 
     const parametros = new URLSearchParams(window.location.search);
 
@@ -42,3 +42,4 @@ async function carregarEvento() {
     return EVENTO;
 
 }
+

@@ -82,8 +82,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("splashScreen").style.display = "none";
 
     mostrarModal(
-        "Erro",
-        erro.message || "Não foi possível carregar o evento."
+        "Acesso não autorizado",
+        erro.message || "Não foi possível carregar o evento.",
+        "erro"
     );
 
 }
