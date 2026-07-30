@@ -970,3 +970,13 @@ textarea::placeholder{
     cursor:default;
 
 }
+
+.logo-padrao {
+
+    width: 220px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+
+}
