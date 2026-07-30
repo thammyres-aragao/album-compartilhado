@@ -711,27 +711,35 @@ textarea::placeholder{
 
 }
 
-.splash-screen{
 
-    position:fixed;
+.splash-screen {
 
-    inset:0;
-
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background:#ffffff;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    z-index:99999;
+    z-index: 9999;
 
 }
 
 .splash-content{
 
-    text-align:center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.logoSplash {
+
+    width: 140px;
+    height: auto;
+    margin: 0 auto 25px auto;
+    display: block;
 
 }
 
@@ -973,10 +981,20 @@ textarea::placeholder{
 
 .logo-padrao {
 
-    width: 220px;
+    width: 90px;
     max-width: 100%;
     height: auto;
     display: block;
     margin: 0 auto;
+
+}
+
+.logoSplash {
+
+    width: 300px;
+    height: auto;
+    margin-bottom: 25px;
+    display: block;
+    opacity: .95;
 
 }
